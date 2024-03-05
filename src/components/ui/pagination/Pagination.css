@@ -1,0 +1,84 @@
+
+  .pagination {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .pagination-page {
+    width: 41px;
+    height: 41px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #E4DBFF;
+    border-top: 1px solid #E4DBFF;
+    border-bottom: 1px solid #E4DBFF;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    .pagination-link {
+        color: #3741CE !important;
+      }
+  }
+
+
+  
+
+  .pagination-page:hover {
+    background-color: #E4DBFF;
+    .pagination-link {
+        color: #3741CE !important;
+      }
+  }
+  
+  .pagination-active {
+    background-color: #3741CE;
+    .pagination-link {
+        color: white !important;
+      }
+  }
+  
+  .pagination-disabled {
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  .pagination-previous{
+    width: 41px;
+    height: 41px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #E4DBFF;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    color: #3741CE;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+.pagination-next {
+    width: 41px;
+    height: 41px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #E4DBFF;
+    border-top: 1px solid #E4DBFF;
+    border-bottom: 1px solid #E4DBFF;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    color: #3741CE;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-previous:hover,
+.pagination-next:hover {
+  background-color: #E4DBFF; /* Change background color on hover */
+}
