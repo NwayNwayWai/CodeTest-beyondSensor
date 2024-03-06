@@ -7,6 +7,7 @@ import { ServerThemeProvider } from "@wits/next-themes";
 import "@/styles/globals.css";
 import "@radix-ui/themes/styles.css";
 import { Toaster } from "react-hot-toast";
+import ProtectLayout from "@/components/layout/ProtectLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +28,9 @@ export default function RootLayout({
           <link rel="icon" href="/favicon.ico" />
         </head>
         <body>
-          <Providers>{children}</Providers>
+          <Providers>
+            <ProtectLayout>{children}</ProtectLayout>
+          </Providers>
           <Toaster
             position="bottom-center"
             toastOptions={{
