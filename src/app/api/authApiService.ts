@@ -1,3 +1,4 @@
+import { Users } from "@/data/User";
 import appAxios from "@/lib/axios";
 import {
   APIResponse,
@@ -12,18 +13,24 @@ const authApiService = {
     password: string;
   }): Promise<APIResponse<LoginResponse | IResponse>> => {
     try {
-      if (data.email == "admin@gmail.com" && data.password == "Admin@123") {
+      // Assuming you have access to the user data stored on a data page
+      const user = Users.find(
+        (user) => user.email == data.email && user.password == data.password
+      );
+      if (user) {
         const result = {
           data: {
-            id: "1",
-            email: "admin@gmail.com",
-            photo_url: "http:beyondsensor.com",
-            full_name: "Admin",
-            is_active: true,
+            email: user.email,
+            password: user.password,
+            fullname: user.fullname,
+            dob: user.dob,
+            city: user.city,
+            role: user.role,
           },
           accessToken:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlQgUyBPIiwiaWQiOiJjbHJwMHUzbTkwMDAxNnV1MTh0c3RnbWRtIiwidG9rZW5LZXkiOiIzZDg2NmFkZWVkMWJjIiwiaWF0IjoxNzA3OTgwNTU2LCJleHAiOjE3MDg1ODUzNTZ9.JNwyLHuf6qSkTYLA0cBhFKocmLXWb04mxdE9yF5DIoI",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlQgUyBPIiwiaWQiOiJjbHJwMHUzbTkwMDAxNnV1MTh0c3RnbWRtIiwidG9rZW5LZXkiOiIyZWZlMjE5MmU1YmE0IiwiaWF0IjoxNzA5NjMxNDk3LCJleHAiOjE3MTAyMzYyOTd9._AmLL01V6e5F5r5NN5fpubymIkXoJQ_5T4VLAM6GJOw", // Assuming you have a function to generate access token based on user id
         };
+
         const response = {
           status: 200,
           data: result,
@@ -52,12 +59,12 @@ const authApiService = {
       };
     }
   },
-
   forgetPassword: async (data: {
     email: string;
   }): Promise<APIResponse<ForgetPassResponse | IResponse>> => {
     try {
-      if (data.email == "admin@gmail.com") {
+      const user = Users.find((user) => user.email == data.email);
+      if (user) {
         const result = {
           email: "admin@gmail.com",
         };

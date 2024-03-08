@@ -15,11 +15,12 @@ export interface LoginResponse {
 }
 
 export interface LoginDataResponse {
-  id: string;
   email: string;
-  photo_url: string;
-  full_name: string;
-  is_active: boolean;
+  password: string;
+  fullname: string;
+  dob: Date;
+  city: string;
+  role: string;
 }
 
 export interface ForgetPassResponse {

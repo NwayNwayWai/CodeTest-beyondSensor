@@ -1,15 +1,15 @@
-'use client';
-import React from 'react';
+"use client";
+import React from "react";
 
-import { cn } from '@/utils/cn';
-import { Box, Flex, Section } from '@radix-ui/themes';
+import { cn } from "@/utils/cn";
+import { Box, Flex, Section } from "@radix-ui/themes";
 
-import { Image } from '../ui/images';
-import { Text } from '../ui/typo';
+import { Image } from "../ui/images";
+import { Text } from "../ui/typo";
 
-import Header from './Header';
-import SideBar from './SideBar';
-import SubHeader from './SubHeader';
+import Header from "./Header";
+import SideBar from "./SideBar";
+import SubHeader from "./SubHeader";
 
 interface Props {
   children: React.ReactNode;
@@ -33,8 +33,8 @@ const PageLayout: React.FC<Props> = ({
         <Box className="items-start bg-red-100 h-full overflow-hidden">
           {!hideHeader && <Header {...props} />}
           <Flex className="h-full bg-white">
-            {!hideSideBar && <SideBar />}
-            <Box className={cn(' flex-1', hideHeader && 'pt-0', className)}>
+            {/* {!hideSideBar && <SideBar />} */}
+            <Box className={cn(" flex-1", hideHeader && "pt-0", className)}>
               <Box className="overflow-auto h-full">{children}</Box>
             </Box>
           </Flex>
